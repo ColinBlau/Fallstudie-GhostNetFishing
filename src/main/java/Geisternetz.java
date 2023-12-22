@@ -30,6 +30,9 @@ public class Geisternetz {
     }
     */
 
+    public Geisternetz() {
+    }
+    
     public Geisternetz(Standort standort, String geschaetzteGroesse, NetzStatus status, Person bergendePerson) {
         this.standort = standort;
         this.geschaetzteGroesse = geschaetzteGroesse;

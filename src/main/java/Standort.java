@@ -12,7 +12,9 @@ public class Standort {
     private int id;
     private String altitude;
     private String longitude;
-    
+
+    public Standort() {
+    }
     
     public Standort(String altitude, String longitude){
         this.altitude = altitude;

@@ -9,7 +9,10 @@
     
     
 <h:body>
-    
+    <h:form>
+        <h:commandButton value="test" action="#{ghostNetFishing.addTestnetz()}"/>
+    </h:form>
+        
     <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.gemeldeteGeisternetze}">
         <h:column>
             <f:facet name="header">Id</f:facet>

@@ -13,7 +13,9 @@ public class Person {
     private int id;
     private String name;
     private String telefonnummer;
-    
+
+    public Person() {
+    }
     
     public Person(String name, String telefonnummer){
         this.name = name;

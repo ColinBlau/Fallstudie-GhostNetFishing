@@ -10,9 +10,8 @@ import java.util.List;
 public class GhostNetFishing {
     
     private GeisternetzDAO geisternetzDAO;
-    /* private PersonDAO personDAO;
+    //private PersonDAO personDAO;
     private StandortDAO standortDAO;
-    */
     
     
     //primitive Testing
@@ -30,14 +29,18 @@ public class GhostNetFishing {
     }
 
     public GhostNetFishing(){
+        this.geisternetzDAO = new GeisternetzDAO(); //IMPORTANT
+        this.standortDAO = new StandortDAO(); //IMPORTANT
+        
         ArrayList<Geisternetz> testListe = new ArrayList<>();
-        Geisternetz testNetz = new Geisternetz(
+        testNetz = new Geisternetz(
                 new Standort("46°14′06.70″N", "8°0′55.60″O"), "ca. 10m",NetzStatus.GEMELDET, null);
         testListe.add(testNetz);
         gemeldeteGeisternetze = testListe;
     }
     
     public void addTestnetz(){
+        standortDAO.add(testNetz.getStandort());
         geisternetzDAO.add(testNetz);
     }
 }
