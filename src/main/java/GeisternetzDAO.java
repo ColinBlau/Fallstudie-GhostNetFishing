@@ -15,7 +15,8 @@ public class GeisternetzDAO {
     public List<Geisternetz> findeAlle(){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-            Query abfrage = entityManager.createQuery("select a from Geisternetz a");
+            Query abfrage = entityManager.createQuery("select a from Geisternetz a where a.status = :GEMELDET");
+            abfrage.setParameter("GEMELDET", NetzStatus.GEMELDET);
             List<Geisternetz> alleNetze = abfrage.getResultList();
         entityManager.close();
         
