@@ -12,11 +12,22 @@ public class GeisternetzDAO {
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ghostNetFishing");
     
     
-    public List<Geisternetz> findeAlle(){
+    public List<Geisternetz> findeGemeldete(){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
             Query abfrage = entityManager.createQuery("select a from Geisternetz a where a.status = :GEMELDET");
             abfrage.setParameter("GEMELDET", NetzStatus.GEMELDET);
+            List<Geisternetz> alleNetze = abfrage.getResultList();
+        entityManager.close();
+        
+        return alleNetze;
+    }
+    
+    public List<Geisternetz> findeZuBergende(){
+        
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+            Query abfrage = entityManager.createQuery("select a from Geisternetz a where a.status = :BERGUNG_BEVORSTEHEND");
+            abfrage.setParameter("BERGUNG_BEVORSTEHEND", NetzStatus.BERGUNG_BEVORSTEHEND);
             List<Geisternetz> alleNetze = abfrage.getResultList();
         entityManager.close();
         

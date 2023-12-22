@@ -15,7 +15,7 @@ public class GhostNetFishing {
     
     
     public List<Geisternetz> getGemeldeteGeisternetze() {
-        return geisternetzDAO.findeAlle();
+        return geisternetzDAO.findeGemeldete();
     }
 
     public void setGemeldeteGeisterNetze(List<Geisternetz> gemeldeteGeisternetze) {
