@@ -1,7 +1,6 @@
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,38 +8,34 @@ import java.util.List;
 @ApplicationScoped
 public class GhostNetFishing {
     
-    private GeisternetzDAO geisternetzDAO;
-    //private PersonDAO personDAO;
-    private StandortDAO standortDAO;
+    private final GeisternetzDAO geisternetzDAO;
+    //private final PersonDAO personDAO;
+    private final StandortDAO standortDAO;
     
-    
-    public List<Geisternetz> getGemeldeteGeisternetze() {
-        return geisternetzDAO.findeGemeldete();
-    }
-
-    public void setGemeldeteGeisterNetze(List<Geisternetz> gemeldeteGeisternetze) {
-        this.gemeldeteGeisternetze = gemeldeteGeisternetze;
-    }
-    
-    //primitive Testing
-    private Geisternetz testNetz;
-    
-    private List<Geisternetz> gemeldeteGeisternetze;
-    //private Geisternetz testNetz;
 
     public GhostNetFishing(){
-        this.geisternetzDAO = new GeisternetzDAO(); //IMPORTANT
-        this.standortDAO = new StandortDAO(); //IMPORTANT
+        this.geisternetzDAO = new GeisternetzDAO();
+        this.standortDAO = new StandortDAO();
         
+        /*  //deprecated test-instances
         ArrayList<Geisternetz> testListe = new ArrayList<>();
         testNetz = new Geisternetz(
                 new Standort("46°14′06.70″N", "8°0′55.60″O"), "ca. 10m",NetzStatus.GEMELDET, null);
         testListe.add(testNetz);
         gemeldeteGeisternetze = testListe;
+        */
     }
     
-    public void addTestnetz(){
-        standortDAO.add(testNetz.getStandort());
-        geisternetzDAO.add(testNetz);
+    
+    //should work
+    public void addGeisternetz(Geisternetz geisternetz){
+        standortDAO.add(geisternetz.getStandort());
+        geisternetzDAO.add(geisternetz);
+    }
+    
+    
+    // getter & setter
+    public List<Geisternetz> getGemeldeteGeisternetze() {
+        return geisternetzDAO.findeGemeldete();
     }
 }
