@@ -14,19 +14,19 @@ public class GhostNetFishing {
     private StandortDAO standortDAO;
     
     
-    //primitive Testing
-    private Geisternetz testNetz;
-    
-    private List<Geisternetz> gemeldeteGeisternetze;
-    //private Geisternetz testNetz;
-
     public List<Geisternetz> getGemeldeteGeisternetze() {
-        return gemeldeteGeisternetze;
+        return geisternetzDAO.findeAlle();
     }
 
     public void setGemeldeteGeisterNetze(List<Geisternetz> gemeldeteGeisternetze) {
         this.gemeldeteGeisternetze = gemeldeteGeisternetze;
     }
+    
+    //primitive Testing
+    private Geisternetz testNetz;
+    
+    private List<Geisternetz> gemeldeteGeisternetze;
+    //private Geisternetz testNetz;
 
     public GhostNetFishing(){
         this.geisternetzDAO = new GeisternetzDAO(); //IMPORTANT
