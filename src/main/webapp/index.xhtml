@@ -9,8 +9,10 @@
     
     
 <h:body>
+    <h4>Startseite</h4>
     <h:form>
-        <h:commandButton value="test" action="#{ghostNetFishing.addTestnetz()}"/>
+        <h:commandButton value="Geisternetz Melden" action="#{startseiteController.geisternetzMelden()}"/>
+        <h:commandButton value="Zur Bergung Anmelden" action="#{startseiteController.zurBergungAnmelden()}"/>
     </h:form>
         
     <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.gemeldeteGeisternetze}">
