@@ -9,6 +9,12 @@ import java.util.List;
 @ApplicationScoped
 public class GhostNetFishing {
     
+    private GeisternetzDAO geisternetzDAO;
+    /* private PersonDAO personDAO;
+    private StandortDAO standortDAO;
+    */
+    
+    
     private Geisternetz testNetz;
     
     private List<Geisternetz> gemeldeteGeisternetze;
