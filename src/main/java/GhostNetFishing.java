@@ -15,6 +15,7 @@ public class GhostNetFishing {
     */
     
     
+    //primitive Testing
     private Geisternetz testNetz;
     
     private List<Geisternetz> gemeldeteGeisternetze;
@@ -36,4 +37,7 @@ public class GhostNetFishing {
         gemeldeteGeisternetze = testListe;
     }
     
+    public void addTestnetz(){
+        geisternetzDAO.add(testNetz);
+    }
 }
