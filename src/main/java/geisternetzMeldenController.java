@@ -12,13 +12,22 @@ public class geisternetzMeldenController implements Serializable {
     private Geisternetz neuesGeisternetz = null;
     private Standort neuerStandort = null;
     
-
     @Inject
     private GhostNetFishing ghostNetFishing;
+    
+    public geisternetzMeldenController(){
+        neuerStandort = new Standort();
+        neuesGeisternetz = new Geisternetz(neuerStandort, "test", NetzStatus.GEMELDET, null);
+    }
     
     
     public String startseite(){
         return "index.xhtml";
+    }
+    
+    public String addGeisternetz(){
+        ghostNetFishing.addGeisternetz(neuesGeisternetz);
+        return startseite();
     }
     
     // getter & setter
