@@ -11,9 +11,24 @@
 <h:body>
     <h4>Geisternetz Melden</h4>
     
+    <h:form>
+        <h:commandButton value="Zurück zur Startseite" action="#{geisternetzMeldenController.startseite()}"/>
+    </h:form>
     
-    
-    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Standort:" for="Standort"/>
+            <h:panelGrid columns="2" id="Standort">
+                <h:outputLabel value="altitude:" for="altitude"/>
+                <h:inputText value="#{geisternetzMeldenController.neuerStandort.altitude}" id="altitude" size="40"/>
+                <h:outputLabel value="longitude:" for="longitude"/>
+                <h:inputText value="#{geisternetzMeldenController.neuerStandort.longitude}" id="longitude" size="40"/>
+            </h:panelGrid>
+            
+            <h:outputLabel value="Geschätzte Größe:" for="geschaetzteGroesse"/>
+            <h:inputText value="#{geisternetzMeldenController.neuesGeisternetz.geschaetzteGroesse}" id="geschaetzteGroesse" size="51"/>
+        </h:panelGrid>
+    </h:form>
     
     
     
