@@ -46,4 +46,17 @@ public class GeisternetzDAO {
             
         entityManager.close();
     }
+    
+    public void save(Geisternetz geisternetz){
+        
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+                
+            entityTransaction.begin();
+                entityManager.merge(geisternetz);
+            entityTransaction.commit();
+            
+        entityManager.close();
+    }
 }

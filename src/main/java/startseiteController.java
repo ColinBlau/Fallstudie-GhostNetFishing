@@ -23,4 +23,12 @@ public class startseiteController implements Serializable {
     public String zurBergungAnmelden(){
         return "zurBergungAnmelden";
     }
+    
+    public void alsGeborgenMelden(Geisternetz geisternetz){
+        ghostNetFishing.alsGeborgenMelden(geisternetz);
+    }
+    
+    public void alsVerschollenMelden(Geisternetz geisternetz){
+        ghostNetFishing.alsVerschollenMelden(geisternetz);
+    }
 }

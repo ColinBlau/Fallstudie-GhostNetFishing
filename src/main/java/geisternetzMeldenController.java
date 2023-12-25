@@ -17,7 +17,7 @@ public class geisternetzMeldenController implements Serializable {
     
     public geisternetzMeldenController(){
         neuerStandort = new Standort();
-        neuesGeisternetz = new Geisternetz(neuerStandort, "test", NetzStatus.GEMELDET, null);
+        neuesGeisternetz = new Geisternetz(neuerStandort, "", NetzStatus.GEMELDET, null);
     }
     
     

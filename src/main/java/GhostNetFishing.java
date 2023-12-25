@@ -27,10 +27,19 @@ public class GhostNetFishing {
     }
     
     
-    //should work
     public void addGeisternetz(Geisternetz geisternetz){
         standortDAO.add(geisternetz.getStandort());
         geisternetzDAO.add(geisternetz);
+    }
+    
+    public void alsGeborgenMelden(Geisternetz geisternetz){
+        geisternetz.setStatus(NetzStatus.GEBORGEN);
+        geisternetzDAO.save(geisternetz);
+    }
+    
+    public void alsVerschollenMelden(Geisternetz geisternetz){
+        geisternetz.setStatus(NetzStatus.VERSCHOLLEN);
+        geisternetzDAO.save(geisternetz);
     }
     
     
