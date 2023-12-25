@@ -9,8 +9,8 @@ import java.io.Serializable;
 @ViewScoped
 public class geisternetzMeldenController implements Serializable {
     
-    private Geisternetz neuesGeisternetz = null;
-    private Standort neuerStandort = null;
+    private Geisternetz neuesGeisternetz;
+    private Standort neuerStandort;
     
     @Inject
     private GhostNetFishing ghostNetFishing;
@@ -25,7 +25,7 @@ public class geisternetzMeldenController implements Serializable {
         return "index.xhtml";
     }
     
-    public String addGeisternetz(){
+    public String add(){
         ghostNetFishing.addGeisternetz(neuesGeisternetz);
         return startseite();
     }
