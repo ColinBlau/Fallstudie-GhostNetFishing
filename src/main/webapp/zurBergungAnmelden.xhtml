@@ -12,9 +12,18 @@
     <h2>Zur Bergung Anmelden</h2>
     
     <h:form>
-        <h:commandButton value="Zurück zur Startseite" action="#{geisternetzMeldenController.startseite()}"/>
+        <h:commandButton value="Zurück zur Startseite" action="#{zurBergungAnmeldenController.startseite()}"/>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name: " for="name"/>
+            <h:inputText value="#{zurBergungAnmeldenController.bergendePerson.name}" id="name" size="40"/>
+        
+            <h:outputLabel value="Telefonnummer: " for="telefonnummer"/>
+            <h:inputText value="#{zurBergungAnmeldenController.bergendePerson.telefonnummer}" id="telefonnummer" size="40"/>
+        </h:panelGrid>
+
+        <h:commandButton value="Anmeldung absenden" action="#{zurBergungAnmeldenController.addPersonToNetz()}"/>
     </h:form>
-    
     
     
     

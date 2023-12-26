@@ -28,6 +28,11 @@
                 <h:outputLabel value="#{einGeisternetz.standort.altitude} #{einGeisternetz.standort.longitude}"/>
             </h:column>
             <h:column>
+                <h:commandButton value="Zur Bergung Anmelden" action="#{zurBergungAnmeldenController.setCurrentGeisternetz(einGeisternetz)}">
+
+                </h:commandButton>
+            </h:column>
+            <h:column>
                 <h:commandButton value="als geborgen Melden" action="#{startseiteController.alsGeborgenMelden(einGeisternetz)}"/>
             </h:column>
             <h:column>
