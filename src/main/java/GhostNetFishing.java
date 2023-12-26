@@ -9,14 +9,13 @@ import java.util.List;
 public class GhostNetFishing {
     
     private final GeisternetzDAO geisternetzDAO;
-    private final PersonDAO personDAO;
+    //private final PersonDAO personDAO;
     private final StandortDAO standortDAO;
     
 
     public GhostNetFishing(){
         this.geisternetzDAO = new GeisternetzDAO();
         this.standortDAO = new StandortDAO();
-        this.personDAO = new PersonDAO();
         
         /*  //deprecated test-instances
         ArrayList<Geisternetz> testListe = new ArrayList<>();
@@ -43,11 +42,6 @@ public class GhostNetFishing {
         geisternetzDAO.save(geisternetz);
     }
     
-    public void addPersonToNetz(Geisternetz geisternetz, Person bergendePerson){
-        geisternetz.setBergendePerson(bergendePerson);
-        personDAO.add(bergendePerson);
-        geisternetzDAO.save(geisternetz);
-    }
     
     // getter & setter
     public List<Geisternetz> getGemeldeteGeisternetze() {
