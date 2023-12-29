@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     
 <h:head>
   <title>GhostNetFishing</title>
@@ -11,10 +12,34 @@
 <h:body>
     <h2>Startseite</h2>
     <h:form>
-        <h:commandButton value="Geisternetz Melden" action="#{startseiteController.geisternetzMelden()}"/>
+        <h:commandButton value="Neues Geisternetz Melden" action="#{startseiteController.geisternetzMelden()}"/>
         <h:commandButton value="Zur Bergung Anmelden" action="#{startseiteController.zurBergungAnmelden()}"/>
+    </h:form>
         
-        <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.gemeldeteGeisternetze}">
+    <h:form>
+        
+        
+        <p:tabView>
+            
+            <p:tab title="Gemeldete Netze">
+                <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.gemeldeteGeisternetze}">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputLabel value="#{einGeisternetz.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Geschätzte Größe</f:facet>
+                        <h:outputLabel value="#{einGeisternetz.geschaetzteGroesse}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Standort</f:facet>
+                        <h:outputLabel value="#{einGeisternetz.standort.altitude} #{einGeisternetz.standort.longitude}"/>
+                    </h:column>
+                </h:dataTable>
+            </p:tab>
+            
+            <p:tab title="Zur Bergung Angemeldete Netze">
+                <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.zuBergendeGeisternetze}">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 <h:outputLabel value="#{einGeisternetz.id}"/>
@@ -28,12 +53,19 @@
                 <h:outputLabel value="#{einGeisternetz.standort.altitude} #{einGeisternetz.standort.longitude}"/>
             </h:column>
             <h:column>
-                <h:commandButton value="als geborgen Melden" action="#{startseiteController.alsGeborgenMelden(einGeisternetz)}"/>
+                <h:outputLabel value="#{einGeisternetz.bergendePerson.name}: #{einGeisternetz.bergendePerson.telefonnummer}"/>
             </h:column>
             <h:column>
-                <h:commandButton value="als verschollen Melden" action="#{startseiteController.alsVerschollenMelden(einGeisternetz)}"/>
+                <h:commandButton value="als GEBORGEN melden" action="#{startseiteController.alsGeborgenMelden(einGeisternetz)}"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="als VERSCHOLLEN melden" action="#{startseiteController.alsVerschollenMelden(einGeisternetz)}"/>
             </h:column>
         </h:dataTable>
+            </p:tab>
+            
+        </p:tabView>
+        
         
     </h:form>
     

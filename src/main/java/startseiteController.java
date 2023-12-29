@@ -11,6 +11,7 @@ public class startseiteController implements Serializable {
     @Inject
     private GhostNetFishing ghostNetFishing;
     
+    private NetzStatus selectedStatus = NetzStatus.GEMELDET;
     
     public startseiteController() {
     }
@@ -31,4 +32,15 @@ public class startseiteController implements Serializable {
     public void alsVerschollenMelden(Geisternetz geisternetz){
         ghostNetFishing.alsVerschollenMelden(geisternetz);
     }
+    
+    // getter & setter
+
+    public NetzStatus getSelectedStatus() {
+        return selectedStatus;
+    }
+
+    public void setSelectedStatus(NetzStatus selectedStatus) {
+        this.selectedStatus = selectedStatus;
+    }
+    
 }

@@ -17,6 +17,7 @@ public class GhostNetFishing {
         this.geisternetzDAO = new GeisternetzDAO();
         this.standortDAO = new StandortDAO();
         
+        //getZuBergendeGeisternetze().get(0).setBergendePerson(new Person("Max Mustermann","+49 1395 2671240"));
         /*  //deprecated test-instances
         ArrayList<Geisternetz> testListe = new ArrayList<>();
         testNetz = new Geisternetz(
@@ -46,5 +47,9 @@ public class GhostNetFishing {
     // getter & setter
     public List<Geisternetz> getGemeldeteGeisternetze() {
         return geisternetzDAO.findeGemeldete();
+    }
+    
+    public List<Geisternetz> getZuBergendeGeisternetze(){
+        return geisternetzDAO.findeZuBergende();
     }
 }
