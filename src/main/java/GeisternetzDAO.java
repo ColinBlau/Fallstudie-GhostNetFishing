@@ -6,12 +6,21 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
+/**
+ * Geisternetz Data Access Object:
+ * Kapselt in sich alle Zugriffsfunktionen auf die Datenbank,
+ * die sich direkt auf Geisternetz-Instanzen beziehen.
+ * @author colin
+ */
 public class GeisternetzDAO {
     
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ghostNetFishing");
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ghostNetFishing");
     
     
+    /**
+     * Gibt ein Liste an allen <code>Geisternetz</code>-Instanzen der Datenbank aus, deren <code>NetzStatus</code>-Attribut <code>GEMELDET</code> aufweisen.
+     * @return      Liste an allen <code>Geisternetz</code>-Instanzen deren <code>NetzStatus</code>-Attribut <code>GEMELDET</code> aufweisen.
+     */
     public List<Geisternetz> findeGemeldete(){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -23,6 +32,10 @@ public class GeisternetzDAO {
         return alleNetze;
     }
     
+    /**
+     * Gibt ein Liste an allen <code>Geisternetz</code>-Instanzen der Datenbank aus, deren <code>NetzStatus</code>-Attribut <code>BERGUNG_BEVORSTEHEND</code> aufweisen.
+     * @return      Liste an allen <code>Geisternetz</code>-Instanzen deren <code>NetzStatus</code>-Attribut <code>BERGUNG_BEVORSTEHEND</code> aufweisen.
+     */
     public List<Geisternetz> findeZuBergende(){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -34,6 +47,12 @@ public class GeisternetzDAO {
         return alleNetze;
     }
     
+    /**
+     * Persistiert ein neues <code>Geisternetz</code>-Objekt in die Datenbank.
+     * Es wird ein neuer Eintrag in der Datenbank angelegt. 
+     * Besteht das Objekt bereits bzw. wurde die <code>id</code> bereits vergeben, wird eine Exception von der Datenbank geworfen.
+     * @param geisternetz       das zu persisitierende <code>Geisternetz</code>-Objekt
+     */
     public void add(Geisternetz geisternetz){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -47,6 +66,11 @@ public class GeisternetzDAO {
         entityManager.close();
     }
     
+    /**
+     * Persistiert das durchgegebene <code>Geisternetz</code>-Objekt in der Datenbank.
+     * Ein eventuelles altes, in der Datenbank vorhandene Objekte, wird vom neuen Objekt überschrieben.
+     * @param geisternetz       das zu persisitierende <code>Geisternetz</code>-Objekt
+     */
     public void save(Geisternetz geisternetz){
         
         EntityManager entityManager = entityManagerFactory.createEntityManager();
