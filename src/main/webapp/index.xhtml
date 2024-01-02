@@ -13,7 +13,6 @@
     <h2>Startseite</h2>
     <h:form>
         <h:commandButton value="Neues Geisternetz Melden" action="#{startseiteController.geisternetzMelden()}"/>
-        <h:commandButton value="Zur Bergung Anmelden" action="#{startseiteController.zurBergungAnmelden()}"/>
     </h:form>
         
     <h:form>
@@ -22,7 +21,7 @@
         <p:tabView>
             
             <p:tab title="Gemeldete Netze">
-                <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.gemeldeteGeisternetze}">
+                <h:dataTable var="einGeisternetz" value="#{startseiteController.zuGemeldeteGeisternetze}">
                     <h:column>
                         <f:facet name="header">Id</f:facet>
                         <h:outputLabel value="#{einGeisternetz.id}"/>
@@ -39,7 +38,7 @@
             </p:tab>
             
             <p:tab title="Zur Bergung Angemeldete Netze">
-                <h:dataTable var="einGeisternetz" value="#{ghostNetFishing.zuBergendeGeisternetze}">
+                <h:dataTable var="einGeisternetz" value="#{startseiteController.zuBergendeGeisternetze}">
                     <h:column>
                         <f:facet name="header">Id</f:facet>
                         <h:outputLabel value="#{einGeisternetz.id}"/>

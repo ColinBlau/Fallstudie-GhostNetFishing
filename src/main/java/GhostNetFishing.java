@@ -66,8 +66,6 @@ public class GhostNetFishing {
     
     
     
-    // getter & setter
-    
     /**
      * Ruft <code>findeGemeldete()</code> des <code>GeisternetzDAO</code>-Objekts auf
      * und gibt die erhaltene Liste aus.
