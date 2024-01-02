@@ -34,6 +34,9 @@
                         <f:facet name="header">Standort</f:facet>
                         <h:outputLabel value="#{einGeisternetz.standort.altitude} #{einGeisternetz.standort.longitude}"/>
                     </h:column>
+                    <h:column>
+                        <h:commandButton value="als VERSCHOLLEN melden" action="#{startseiteController.alsVerschollenMelden(einGeisternetz)}"/>
+                    </h:column>
                 </h:dataTable>
             </p:tab>
             
@@ -52,6 +55,7 @@
                         <h:outputLabel value="#{einGeisternetz.standort.altitude} #{einGeisternetz.standort.longitude}"/>
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Bergende Person</f:facet>
                         <h:outputLabel value="#{einGeisternetz.bergendePerson.name}: #{einGeisternetz.bergendePerson.telefonnummer}"/>
                     </h:column>
                     <h:column>
